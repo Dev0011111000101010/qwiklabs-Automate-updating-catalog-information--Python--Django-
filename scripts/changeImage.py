@@ -22,7 +22,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
 
     # Which files in the folder do not need to be edited as a photo
     # Currently only works if it's a single file or folder (locally work)
-    ignore_file_list = ['.DS_Store', 'README']
+    ignore_file_list = ['.DS_Store', 'README', 'LICENSE']
 
     """Main control of the parameters of the results of modified files"""
     # File parameters after conversion
@@ -49,7 +49,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
             # In MacOS, service files are generated that interfere with the script,
             # the library cannot understand what kind of file, service hidden folder,
             # for this reason, we added it to the exception
-            if infile != ignore_file_list:
+            if infile not in ignore_file_list:
                 image_path_and_name = os.path.join(root, infile)
                 print('=============================')
                 print('-----------------------------')
@@ -63,10 +63,14 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
                 print(image_path_and_name)
                 print('-----------------------------')
                 print('')
-
             else:
+                print('=============================')
+                print('-----------------------------')
                 print('The folder contains files and folders that cannot be processed')
+                print('# "' + infile + '"' + " = an example of such a file")
                 print('Such folders need to be added to "ignore_file_list"')
+                print('-----------------------------')
+                print('')
                 pass
 
 
