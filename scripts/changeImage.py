@@ -18,7 +18,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
 
     # According to the task given to us, the modified photos should appear in the same folder
     # Separate variable so that the result folder can be easily changed
-    folder_converted_images = foto_originals_folder_absolute_path
+    folder_converted_images_absolute_path = foto_originals_folder_absolute_path
 
     # Which files in the folder do not need to be edited as a photo
     # Currently only works if it's a single file or folder (locally work)
@@ -26,7 +26,9 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
 
     """Main control of the parameters of the results of modified files"""
     # File parameters after conversion
+    # Intermediate variable
     resized_image_size = (600, 400)
+    # Variables to use in "PIL"
     command_2_resize_photos = '.resize(resized_image_size)'
     command_2_convert_from_RGBA_2_RGB_convertion = ".convert('RGB')"
     command_folder_2_save_converted_photos_and_file_format = ".save(folder_converted_images, 'JPEG')"
@@ -45,24 +47,73 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
         print('-----------------------------')
         print('# QA : initial list of files and their extensions')
         print('-----------------------------')
+        print('')
         for infile in files:
             # In MacOS, service files are generated that interfere with the script,
             # the library cannot understand what kind of file, service hidden folder,
             # for this reason, we added it to the exception
             if infile not in ignore_file_list:
+                # The universal "correct" way to connect the filename of each photo
+                # with an absolute path of their original location
                 image_path_and_name = os.path.join(root, infile)
+                # print('=============================')
+                # print('-----------------------------')
+                # print('# QA : print(infile)')
+                # print(infile)
+                # print('-----------------------------')
+                # print('# QA : print(root)')
+                # print(root)
+                # print('-----------------------------')
+                # print('# QA : print(image_path_and_name)')
+                # print(image_path_and_name)
+                # print('-----------------------------')
+                # print('')
+
+                # The universal "correct" way to connect the filename of each photo
+                # with an absolute path of their new location
+                new_image_path_and_name = os.path.join(folder_converted_images_absolute_path, infile)
+
+                # "PIL" command of open image
+                im = Image.open(image_path_and_name)
+
                 print('=============================')
                 print('-----------------------------')
-                print('# QA : print(infile)')
-                print(infile)
-                print('-----------------------------')
-                print('# QA : print(root)')
-                print(root)
-                print('-----------------------------')
-                print('# QA : print(image_path_and_name)')
+                print('# QA : old image path and name')
                 print(image_path_and_name)
                 print('-----------------------------')
+                # print(im)
+                print(im.format, im.size, im.mode)
+                # if ERROR "tempfile.tif: JPEG compression support is not configured."
+                # go to https://gitlab.gnome.org/GNOME/gimp/-/issues/5651
+                print('-----------------------------')
                 print('')
+
+                try:
+                    im + command_2_resize_photos + command_2_convert_from_RGBA_2_RGB_convertion + command_folder_2_save_converted_photos_and_file_format
+                except OSError as error:
+                    print('=============================')
+                    print('-----------------------------')
+                    print(error)
+                    print("Cannot convert: ", infile)
+                    print('-----------------------------')
+                    print('')
+
+                print('=============================')
+                print('-----------------------------')
+                print('# QA : new_image_path_and_name')
+                print('# QA : Checking photos after conversion')
+                print(new_image_path_and_name)
+                print('-----------------------------')
+                # Checking photos after conversion
+                new_im = Image.open(new_image_path_and_name)
+                # print('-----------------------------')
+                print(new_im.format, new_im.size, new_im.mode)
+                print('-----------------------------')
+                print(os.path.join(root, infile))
+                print(image_path_and_name + '   # Should equal the string above, checking for identity with "os.path.join(root, infile)"')
+                print('-----------------------------')
+                print('')
+
             else:
                 print('=============================')
                 print('-----------------------------')
