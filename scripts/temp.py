@@ -1,2 +1,2 @@
-chmod 600 ~/Downloads/qwiklabs-L36097175.pem
-ssh -i ~/Downloads/qwiklabs-L36097175.pem student-00-0dd6461e8915@34.133.106.182
+chmod 600 ~/Downloads/qwiklabs-L36107550.pem
+ssh -i ~/Downloads/qwiklabs-L36107550.pem student-00-690877e063b3@35.232.91.91

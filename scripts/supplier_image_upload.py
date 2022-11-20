@@ -16,7 +16,7 @@ url = "http://localhost/upload/"
 ## python3
 ## import os
 ## os.getcwd() #in this case, the path "/home/student-00-8ffbbf494319/supplier-data/images"
-foto_originals_folder_absolute_path = '/home/student-00-0dd6461e8915/supplier-data/images/'
+foto_originals_folder_absolute_path = os.getcwd() + '/supplier-data/images/'
 
 # According to the task given to us, the modified photos should appear in the same folder
 # Separate variable so that the result folder can be easily changed
