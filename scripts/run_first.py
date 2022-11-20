@@ -4,6 +4,9 @@
 # sudo apt-get update
 # sudo apt install python-django-common
 # sudo systemctl start google-startup-scripts.service
+# nano ~/run_first.py
+# sudo chmod +x ~/run_first.py
+# ./run_first.py
 
 """First, before running
     run.py
@@ -19,11 +22,11 @@ If "##" is used, then this is a comment that is to ACTION so that the code works
 ## The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
 """Online"""
-# fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
+fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
 """Local"""
-fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
+# fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
 
 # URL of the server
 ## Replace <corpweb-external-IP> (35.222.215.76) with corpweb's external IP address.
@@ -96,7 +99,8 @@ def change_TXT_files_2_automate_uploading(fruits_list_txt_files_folder_path):
     for file in txt_files_list:
         with open(fruits_list_txt_files_folder_path + file, 'a') as f:
             image_name = file[:4] + "jpeg"
-            f.write('\n' + image_name)
+            # f.write('\n' + image_name)
+            f.write(image_name)
             print(file + "# +name of the image")
 
 

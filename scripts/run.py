@@ -21,18 +21,18 @@ If "##" is used, then this is a comment that is to ACTION so that the code works
 ## The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
 """Online"""
-# fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
+fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
 """Local"""
-fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
+# fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
 
 # URL of the server
 ## Replace <corpweb-external-IP> (35.222.215.76) with corpweb's external IP address.
 """Change me :) """
-combat_server_url = 'http://34.133.106.182/fruits/'
+combat_server_url = 'http://35.225.10.158/fruits/'
 
-list_dictionary_titles = ["title", "weight", "description", "image_name"]
+list_dictionary_titles = ["name", "weight", "description", "image_name"]
 
 # Get the list of all files and directories
 # in the 'feedback_txt_files_folder_path' directory
@@ -82,15 +82,15 @@ def txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path):
             fruits_list_dictionary = dict(zip(list_dictionary_titles, list_content_of_feedback_files))
             print(fruits_list_dictionary)
             """For local use, comment out the line below, for online use, uncomment"""
-            # post_each_1_fruit_in_json_format_2_server = requests.post(combat_server_url, json=fruits_list_dictionary)
+            post_each_1_fruit_in_json_format_2_server = requests.post(combat_server_url, json=fruits_list_dictionary)
             print('======================')
             print('----------------------')
             print(' # QA: print(json.dumps(fruits_list_dictionary))')
             print(json.dumps(fruits_list_dictionary))
             print('----------------------')
-            # # Change single quotes in Python dictionary to Jason double quotes
-            # # It turned out to be mandatory for the manual addition of feedback and interfere with the automatic one
-            # # dictionary_double_quotes_formate_transform = json.dumps(fruits_list_dictionary)
+            # Change single quotes in Python dictionary to Jason double quotes
+            # It turned out to be mandatory for the manual addition of feedback and interfere with the automatic one
+            # dictionary_double_quotes_formate_transform = json.dumps(fruits_list_dictionary)
             # # post_each_1_feedback_in_json_format_2_server_double_quotes = requests.post(combat_server_url, json=dictionary_double_quotes_formate_transform)
             # print('----------------------')
             # print(' # QA: print(post_each_1_feedback_in_json_format_2_server_double_quotes)')
@@ -99,20 +99,20 @@ def txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path):
             # print('')
 
     """For local use, comment out the lines below, for online use, uncomment"""
-    # print('======================')
-    # print('----------------------')
-    # print(' # QA: response.status_code')
-    # print(post_each_1_fruit_in_json_format_2_server.status_code)
-    # print(' # QA: response.ok')
-    # print(post_each_1_fruit_in_json_format_2_server.ok)
-    # print('----------------------')
-    # print(' # QA: response.request.url')
-    # print(post_each_1_fruit_in_json_format_2_server.request.url)
-    # print('----------------------')
-    # print(' # QA: response.request.body')
-    # print(post_each_1_fruit_in_json_format_2_server.request.body)
-    # print('----------------------')
-    # print('')
+    print('======================')
+    print('----------------------')
+    print(' # QA: response.status_code')
+    print(post_each_1_fruit_in_json_format_2_server.status_code)
+    print(' # QA: response.ok')
+    print(post_each_1_fruit_in_json_format_2_server.ok)
+    print('----------------------')
+    print(' # QA: response.request.url')
+    print(post_each_1_fruit_in_json_format_2_server.request.url)
+    print('----------------------')
+    print(' # QA: response.request.body')
+    print(post_each_1_fruit_in_json_format_2_server.request.body)
+    print('----------------------')
+    print('')
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "fruits_list_txt_files_folder_path" path is passed
 convert_txt_fruits_lis_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path)
