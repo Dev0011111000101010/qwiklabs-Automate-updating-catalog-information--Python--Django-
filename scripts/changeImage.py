@@ -31,7 +31,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
     # Variables to use in "PIL"
     command_2_resize_photos = '.resize(resized_image_size)'
     command_2_convert_from_RGBA_2_RGB_convertion = ".convert('RGB')"
-    command_folder_2_save_converted_photos_and_file_format = ".save(folder_converted_images_absolute_path, 'JPEG')"
+    command_folder_2_save_converted_photos_and_file_format = ".save(folder_converted_images_absolute_path + infile[:-4] +'jpeg', 'JPEG')"
 
     print('=============================')
     print('-----------------------------')
@@ -76,33 +76,34 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
                 # "PIL" command of open image
                 im = Image.open(image_path_and_name)
 
-                print('=============================')
-                print('-----------------------------')
-                print('# QA : old image path and name')
-                print(image_path_and_name)
-                print('-----------------------------')
-                # print(im)
-                print(im.format, im.size, im.mode)
+                # print('=============================')
+                # print('-----------------------------')
+                # print('# QA : old image path and name')
+                # print(image_path_and_name)
+                # print('-----------------------------')
+                # # print(im)
+                # print(im.format, im.size, im.mode)
                 # if ERROR "tempfile.tif: JPEG compression support is not configured."
                 # go to https://gitlab.gnome.org/GNOME/gimp/-/issues/5651
-                print('-----------------------------')
-                print('')
+                # print('-----------------------------')
+                # print('')
 
-                # im_convert_working_summary_of_commands = 'im' + command_2_resize_photos + command_2_convert_from_RGBA_2_RGB_convertion + command_folder_2_save_converted_photos_and_file_format
+                im_convert_working_summary_of_commands = 'im' + command_2_resize_photos + command_2_convert_from_RGBA_2_RGB_convertion + command_folder_2_save_converted_photos_and_file_format
                 # print('=============================')
                 # print('-----------------------------')
                 # print('# QA: im_convert_working_summary_of_commands')
                 # print(im_convert_working_summary_of_commands)
                 # print('-----------------------------')
                 # print('')
-                print('=============================')
-                print('-----------------------------')
-                print(im)
-                print('-----------------------------')
-                print('')
+                # print('=============================')
+                # print('-----------------------------')
+                # print(im)
+                # print('-----------------------------')
+                # print('')
 
                 try:
-                    convert = im.resize(resized_image_size).convert('RGB').save(folder_converted_images_absolute_path + infile[:-4] +'jpeg', 'JPEG')
+                    # convert = im.resize(resized_image_size).convert('RGB').save(folder_converted_images_absolute_path + infile[:-4] +'jpeg', 'JPEG')
+                    convert = im_convert_working_summary_of_commands
                     print('-----------------------------')
                     print('print(convert)')
                     print(convert)
@@ -118,7 +119,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
                     # im_convert_working_summary_of_commands
                     new_im = Image.open(new_image_path_and_name[:-4] +'jpeg')
                     print('# QA : converted photo properties')
-                    print(new_im)
+                    print(new_image_path_and_name[:-4] +'jpeg')
                     print(new_im.format, new_im.size, new_im.mode)
                     print('-----------------------------')
 
@@ -131,21 +132,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
                     print('-----------------------------')
                     print('')
 
-                print('=============================')
-                print('-----------------------------')
-                print('# QA : new_image_path_and_name')
-                print('# QA : Checking photos after conversion')
-                print(new_image_path_and_name)
-                print('-----------------------------')
-                # Checking photos after conversion
-                # new_im = Image.open(new_image_path_and_name[:-4] + 'jpeg')
-                new_im = Image.open(new_image_path_and_name)
-                # Must be used when saving to the same folder
-                # The test needs to be rewritten if saving to a different folder than the originals
-                # correct_extension_new_im = new_im
-                # print('-----------------------------')
-                print('# QA : converted photo properties')
-                print(new_im.format, new_im.size, new_im.mode)
+
                 print('-----------------------------')
                 print(os.path.join(root, infile))
                 print(image_path_and_name + '   # Should equal the string above, checking for identity with "os.path.join(root, infile)"')
