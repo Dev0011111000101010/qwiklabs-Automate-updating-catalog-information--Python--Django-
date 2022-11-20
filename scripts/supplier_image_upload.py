@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+"""When "#" is used it means "comment"
+If "##" is used, then this is a comment that is to ACTION so that the code works on a local OR online server"""
+
 import requests
 import os
 

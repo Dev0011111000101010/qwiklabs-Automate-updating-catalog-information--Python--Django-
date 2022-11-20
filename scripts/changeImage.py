@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+"""When "#" is used it means "comment"
+If "##" is used, then this is a comment that is to ACTION so that the code works on a local OR online server"""
+
 import os, sys
 from PIL import Image
 def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
