@@ -14,7 +14,7 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
     ## python3
     ## import os
     ## os.getcwd() #in this case, the path "/home/student-00-8ffbbf494319/supplier-data/images"
-    foto_originals_folder_absolute_path = '/home/student-00-8ffbbf494319/supplier-data/images/'
+    foto_originals_folder_absolute_path = '/home/student-00-0dd6461e8915/supplier-data/images/'
 
     # According to the task given to us, the modified photos should appear in the same folder
     # Separate variable so that the result folder can be easily changed
@@ -102,8 +102,8 @@ def image_3000x2000to600x400resizer_TIFF2JPEG_RGBA2RGB_converter():
                 # print('')
 
                 try:
-                    # convert = im.resize(resized_image_size).convert('RGB').save(folder_converted_images_absolute_path + infile[:-4] +'jpeg', 'JPEG')
-                    convert = im_convert_working_summary_of_commands
+                    convert = im.resize(resized_image_size).convert('RGB').save(folder_converted_images_absolute_path + infile[:-4] +'jpeg', 'JPEG')
+                    # convert = im_convert_working_summary_of_commands
                     print('-----------------------------')
                     print('print(convert)')
                     print(convert)
