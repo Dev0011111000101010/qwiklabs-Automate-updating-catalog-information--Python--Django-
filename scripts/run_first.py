@@ -59,7 +59,7 @@ def change_TXT_files_2_automate_uploading(fruits_list_txt_files_folder_path):
 
     # Creating a variable for a list of TXT files
     txt_files_list = os.listdir(fruits_list_txt_files_folder_path)
-    # QA: Iterating over each individual feedback file
+    # QA: Iterating over each individual TXT file
     for file in txt_files_list:
         print(file + '    # QA : Iterating over each individual feedback file')
 

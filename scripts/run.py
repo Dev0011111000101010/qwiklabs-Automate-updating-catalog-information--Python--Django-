@@ -81,6 +81,7 @@ def txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path):
             # https://careerkarma.com/blog/python-convert-list-to-dictionary/
             fruits_list_dictionary = dict(zip(list_dictionary_titles, list_content_of_feedback_files))
             print(fruits_list_dictionary)
+            """Online"""
             """For local use, comment out the line below, for online use, uncomment"""
             post_each_1_fruit_in_json_format_2_server = requests.post(combat_server_url, json=fruits_list_dictionary)
             print('======================')
