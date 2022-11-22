@@ -20,11 +20,11 @@ from reportlab.pdfgen import canvas
 # The correct code to use on the combat server to complete the task
 ## The lines below need to be uncommented and applied when running the qwiklabs task
 """Online"""
-# fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
+fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
 ## The line below was created for local testing without creating a load on the qwiklabs Google server
 ## The line below should be commented out when running the job online in qwiklabs, while the line above is uncommented
 """Local"""
-fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
+# fruits_list_txt_files_folder_path = os.getcwd() + '/../supplier-data/descriptions/'
 
 list_dictionary_titles = ["name", "weight", "description", "image_name"]
 
@@ -132,7 +132,10 @@ def create_PDF(fruits_list_txt_files_folder_path):
     scripts_absolute_path = os.getcwd()
     print(scripts_absolute_path)
     pdf_file_folder_reletive_path = '/tmp/'
-    pdf_file_absolute_path = scripts_absolute_path + pdf_file_folder_reletive_path
+    # The code caused an error when used
+    # NotADirectoryError: [Errno 20] Not a directory: '/home/student-00-5daf2a721226/tmp/processed.pdf'
+    # pdf_file_absolute_path = scripts_absolute_path + pdf_file_folder_reletive_path
+    pdf_file_absolute_path = '/tmp/'
     pdf_file_absolute_path_and_file_name = os.path.join(pdf_file_absolute_path, file_name)
     print(pdf_file_absolute_path)
     print(pdf_file_absolute_path_and_file_name)
@@ -147,7 +150,11 @@ def create_PDF(fruits_list_txt_files_folder_path):
     print(title + "    #QA: 'title' = title_1_part + ' ' + str(title_2_part)")
     text_lines = summary_for_PDF
     # File name + path
+    # The code caused an error when used
+    # NotADirectoryError: [Errno 20] Not a directory: '/home/student-00-5daf2a721226/tmp/processed.pdf'
     pdf = canvas.Canvas(pdf_file_absolute_path_and_file_name)
+    # pdf = canvas.Canvas(file_name)
+
     # Document title
     pdf.setTitle(document_title)
     # Title

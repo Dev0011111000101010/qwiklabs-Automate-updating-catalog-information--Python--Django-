@@ -30,8 +30,8 @@ fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
 # URL of the server
 ## Replace <corpweb-external-IP> (35.222.215.76) with corpweb's external IP address.
 """Change me :) """
-# combat_server_url = 'http://35.225.10.158/fruits/'
-combat_server_url = 'http://{}/fruits/'.format(os.environ.get('USER'))
+combat_server_url = 'http://34.135.109.205/fruits/'
+# combat_server_url = 'http://{}/fruits/'.format(os.environ.get('USER'))
 
 
 list_dictionary_titles = ["name", "weight", "description", "image_name"]
@@ -119,3 +119,5 @@ def txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path):
 
 # Launching the "txt_2_dictionary_jungo_structure" function into which the "fruits_list_txt_files_folder_path" path is passed
 convert_txt_fruits_lis_2_dictionary_jungo_structure = txt_2_dictionary_jungo_structure(fruits_list_txt_files_folder_path)
+
+print(combat_server_url)

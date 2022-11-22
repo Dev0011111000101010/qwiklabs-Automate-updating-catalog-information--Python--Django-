@@ -31,8 +31,11 @@ fruits_list_txt_files_folder_path = os.getcwd() + '/supplier-data/descriptions/'
 # URL of the server
 ## Replace <corpweb-external-IP> (35.222.215.76) with corpweb's external IP address.
 """Change me :) """
-# combat_server_url = 'http://34.133.106.182/fruits/'
-combat_server_url = 'http://{}/fruits/'.format(os.environ.get('USER'))
+combat_server_url = 'http://34.135.109.205/fruits/'
+# combat_server_url = 'http://{}/fruits/'.format(os.environ.get('USER'))
+# combat_server_url = 'http://localhost/fruits/'
+
+
 
 list_dictionary_titles = ["title", "weight", "description", "image_name"]
 

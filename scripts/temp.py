@@ -1,6 +1,6 @@
 """
-chmod 600 ~/Downloads/qwiklabs-L36124082.pem
-ssh -i ~/Downloads/qwiklabs-L36124082.pem student-00-350ac9c49fda@35.225.10.158
+chmod 600 ~/Downloads/qwiklabs-L36305267.pem
+ssh -i ~/Downloads/qwiklabs-L36305267.pem student-00-5daf2a721226@34.135.109.205
 
 0. Preparation for work
     ls ~/
@@ -54,9 +54,21 @@ Intermediate mandatory manual actions
         ./run_first.py
     Programmer's job №2
         # Check if files have been modified correctly
-        nano  ~/supplier-data/descriptions/010.txt
-        nano  ~/supplier-data/descriptions/002.txt
-        nano  ~/supplier-data/descriptions/001.txt
+        cat  ~/supplier-data/descriptions/010.txt
+        cat  ~/supplier-data/descriptions/002.txt
+        cat  ~/supplier-data/descriptions/001.txt
+            nano ~/supplier-data/descriptions/001.txt
+            nano ~/supplier-data/descriptions/002.txt
+            nano ~/supplier-data/descriptions/003.txt
+            nano ~/supplier-data/descriptions/004.txt
+            nano ~/supplier-data/descriptions/005.txt
+            nano ~/supplier-data/descriptions/006.txt
+            nano ~/supplier-data/descriptions/007.txt
+            nano ~/supplier-data/descriptions/008.txt
+            nano ~/supplier-data/descriptions/009.txt
+            nano ~/supplier-data/descriptions/010.txt
+
+
     Programmer's job №3
         nano ~/run.py
         sudo chmod +x ~/run.py
@@ -69,11 +81,24 @@ Intermediate mandatory manual actions
             # Insurance for everything to work correctly
                 ## Run to correct work
                 # pip install reportlab
+                # pip install emails
 
+        # Create a folder where the PDF is saved. Without creating a folder, the PDF cannot be saved.
+        touch ~/tmp
+        ls -l  ~/tmp
+        ls -l  ~/
         nano ~/reports.py
         sudo chmod +x ~/reports.py
         ./reports.py
+        ls -l  ~/
+            # nano /tmp/reports.py
+            # sudo chmod +x /tmp/reports.py
+            # cd /tmp
+            # ./reports.py
 
+
+        nano ~/emails.py
+        sudo chmod +x ~/report_email.py
         nano ~/report_email.py
         sudo chmod +x ~/report_email.py
         ./report_email.py
@@ -83,10 +108,7 @@ Intermediate mandatory manual actions
         sudo chmod +x ~/report_email.py
         ./report_email.py
 
-    =======================================
-
-        nano ~/emails.py
-
+"""
 
 
 
