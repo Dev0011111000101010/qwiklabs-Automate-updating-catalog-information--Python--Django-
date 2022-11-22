@@ -79,6 +79,12 @@ Intermediate mandatory manual actions
         ./report_email.py
 
     4.2. Send report through email
+        nano ~/report_email.py
+        sudo chmod +x ~/report_email.py
+        ./report_email.py
+
+    =======================================
+
         nano ~/emails.py
 
 
