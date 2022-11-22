@@ -64,6 +64,12 @@ Intermediate mandatory manual actions
 
 4. Generate a PDF report and send it through email
     4.1. Generate a PDF report and send it through email
+
+        Try NOT to install :)
+            # Insurance for everything to work correctly
+                ## Run to correct work
+                # pip install reportlab
+
         nano ~/reports.py
         sudo chmod +x ~/reports.py
         ./reports.py
